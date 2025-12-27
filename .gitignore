@@ -1,0 +1,29 @@
+package utils
+
+import (
+	"fmt"
+
+	"github.com/skip2/go-qrcode"
+)
+
+func GenerateCertificateQR(certId string) (string, error) {
+	verifyURL := fmt.Sprintf(
+		"http://localhost:8082/certificates/verify/%s",
+		certId,
+	)
+
+	filePath := fmt.Sprintf("./qrcodes/%s.png", certId)
+
+	err := goqrcode.WriteFile(
+		verifyURL,
+		goqrcode.Medium,
+		256,
+		filePath,
+	)
+
+	if err != nil {
+		return "", err
+	}
+
+	return filePath, nil
+}

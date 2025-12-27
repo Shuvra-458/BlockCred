@@ -1,0 +1,14 @@
+await registry.verifyCertificate("0x8527a891e2241369501f32ca212b45bc93f69fbb801c3b1ebedac52775f99e61")
+await registry.issuers("0x70997970C51812dc3A010C7d01b50e0d17dc79C8")
+await registry.addIssuer("0x70997970C51812dc3A010C7d01b50e0d17dc79C8")
+)
+"0x5fbdb2315678afecb367f032d93f642f64180aa3"
+"CertificateRegistry",
+const registry = await ethers.getContractAt(
+.exit
+exit
+await registry.addIssuer("0x70997970C51812dc3A010C7d01b50e0d17dc79C8")
+)
+"0x70997970C51812dc3A010C7d01b50e0d17dc79C8"
+"CertificateRegistry",
+const registry = await ethers.getContractAt(

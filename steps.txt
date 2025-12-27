@@ -1,0 +1,2 @@
+npx hardhat run scripts/deploy.js --network localhost(run after every startup)
+npx hardhat node (start local blockchain)
