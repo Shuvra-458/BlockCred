@@ -1,30 +1,88 @@
-package utils
+# =========================
+# OS / Editor
+# =========================
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+.vscode/
+.idea/
 
-import (
-	"fmt"
+# =========================
+# Go
+# =========================
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+bin/
+build/
 
-	"github.com/skip2/go-qrcode"
-)
+# Go modules cache (optional)
+vendor/
 
-func GenerateCertificateQR(certId string) (string, error) {
-	verifyURL := fmt.Sprintf(
-		"http://localhost:8082/certificates/verify/%s",
-		certId,
-	)
+# =========================
+# Logs
+# =========================
+*.log
+logs/
 
-	filePath := fmt.Sprintf("./qrcodes/%s.png", certId)
-
-	err := goqrcode.WriteFile(
-		verifyURL,
-		goqrcode.Medium,
-		256,
-		filePath,
-	)
-
-	if err != nil {
-		return "", err
-	}
-
-	return filePath, nil
-}
+# =========================
+# Environment / Secrets
+# =========================
 .env
+.env.*
+*.pem
+*.key
+secrets/
+config.local.go
+
+# =========================
+# Temporary files
+# =========================
+tmp/
+temp/
+uploads/
+
+# =========================
+# IPFS / Pinata
+# =========================
+.ipfs/
+ipfs_data/
+
+# =========================
+# Blockchain / Hardhat
+# =========================
+blockchain/node_modules/
+blockchain/cache/
+blockchain/artifacts/
+blockchain/typechain/
+blockchain/coverage/
+blockchain/.env
+
+# Hardhat logs
+blockchain/*.log
+
+# =========================
+# Frontend (React / Vite)
+# =========================
+frontend/node_modules/
+frontend/dist/
+frontend/.env
+frontend/.env.*
+
+# =========================
+# Tests / Coverage
+# =========================
+coverage/
+*.cover
+
+# =========================
+# Misc
+# =========================
+*.zip
+*.tar
+*.tar.gz
