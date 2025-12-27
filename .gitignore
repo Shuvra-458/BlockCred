@@ -27,3 +27,4 @@ func GenerateCertificateQR(certId string) (string, error) {
 
 	return filePath, nil
 }
+.env
