@@ -15,7 +15,7 @@ import (
 
 func Issue(c *gin.Context) {
 
-	// 1️⃣ Get form fields
+	//Get form fields
 	name := c.PostForm("name")
 	regNo := c.PostForm("registration_number")
 	org := c.PostForm("organization")
@@ -60,7 +60,7 @@ func Issue(c *gin.Context) {
 		"issued_at":           time.Now().Format(time.RFC3339),
 	}
 
-	// 7️⃣ Upload metadata JSON to IPFS
+	//Upload metadata JSON to IPFS
 	metaCid, err := ipfs.UploadJSONToIPFS(meta)
 	if err != nil {
 		log.Println("JSON upload error:", err)
@@ -68,13 +68,13 @@ func Issue(c *gin.Context) {
 		return
 	}
 
-	// 8️⃣ Store metadata CID on blockchain
+	//Store metadata CID on blockchain
 	if err := blockchain.IssueCertificate(certIdHex, metaCid); err != nil {
 		c.JSON(500, gin.H{"error": "blockchain issue failed"})
 		return
 	}
 
-	// 9️⃣ Response
+	//Response
 	c.JSON(200, gin.H{
 		"status":      "issued",
 		"certId":      certIdHex,
